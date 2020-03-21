@@ -29,7 +29,7 @@ var functions = {
 
         let msg = await member.user.send(embed)
 
-        let classes = ['5', '6', '7', '8', '9', '10', '11', '12', 'Q11', 'Q12', 'Lehrer'];
+        let classes = ['5', '6', '7', '8', '9', '10', '11', '12', 'Q11', 'Q12', 'Lehrer', 'Elternbeirat'];
         let cls;
 
         while (true) {
