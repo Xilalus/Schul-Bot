@@ -81,7 +81,13 @@ var functions = {
                    
                     nick = collect.first().content;
                     if(nick.length < 33) {
+                        
                         break;
+                        
+                    } else {
+                    
+                        user.send('Dein Name kann leider nicht länger als 32 Zeichen sein. Bitte kürze deinen Namen ab!')
+                        
                     }
 
                 }
