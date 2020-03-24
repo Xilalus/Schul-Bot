@@ -78,9 +78,11 @@ var functions = {
             } else {
 
                 if (collect.size) {
-
+                   
                     nick = collect.first().content;
-                    break;
+                    if(nick.length < 33) {
+                        break;
+                    }
 
                 }
 
