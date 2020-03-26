@@ -110,7 +110,7 @@ var functions = {
             .setColor(color)
             .setTitle('Beitrittsanfrage')
             .setDescription('**Benutzername:** ' + member.user.username + '\n**Nick:** ' + nick + '\n**Jahrgangsstufe:** ' + cls)
-        anfrage_channel.send(info)
+        msg = await anfrage_channel.send(info)
         
         const reactions = ["✅", "❌"];
 
