@@ -111,6 +111,96 @@ var functions = {
             .setTitle('Beitrittsanfrage')
             .setDescription('**Benutzername:** ' + member.user.username + '\n**Nick:** ' + nick + '\n**Jahrgangsstufe:** ' + cls)
         anfrage_channel.send(info)
+        
+        const reactions = ["✅", "❌"];
+
+        //React to inventory embed message
+        for (const react of reactions) {
+            await msg.react(react);
+        }
+
+        while (true) {
+
+            const filter = (reaction, user) => {
+                return ["✅", "❌"].includes(reaction.emoji.name) && user.id !== bot.user.id;
+            };
+
+            const collect = await msg.awaitReactions(
+                filter, { time: 20000, max: 1 })
+                .catch(() => { });
+            if (!collect) {
+
+            } else {
+
+                if (collect.size) {
+
+                    if (collect.first().emoji.name === '✅') {
+
+                        msg.delete()
+                        break;
+
+                    } else if (collect.first().emoji.name === '❌') {
+
+                        msg.delete()
+                        return;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        let guild_role;
+        switch (cls) {
+            case '5':
+                guild_role = member.guild.roles.cache.find(role => role.id === '690515833793019954')
+                break;
+            case '6':
+                guild_role = member.guild.roles.cache.find(role => role.id === '690516100332388353')
+                break;
+            case '7':
+                guild_role = member.guild.roles.cache.find(role => role.id === '690516125317857281')
+                break;
+            case '8':
+                guild_role = member.guild.roles.cache.find(role => role.id === '690516153075892276')
+                break;
+            case '9':
+                guild_role = member.guild.roles.cache.find(role => role.id === '690516217512984608')
+                break;
+            case '10':
+                guild_role = member.guild.roles.cache.find(role => role.id === '690516254695620698')
+                break;
+            case '11':
+            case 'Q11':
+                guild_role = member.guild.roles.cache.find(role => role.id === '690209136050438165')
+                break;
+            case '12':
+            case 'Q12':
+                guild_role = member.guild.roles.cache.find(role => role.id === '690203934148919445')
+                break;
+            case 'Lehrer':
+                guild_role = member.guild.roles.cache.find(role => role.id === '690204242807488628')
+                break;
+            case 'Elternbeirat':
+                guild_role = member.guild.roles.cache.find(role => role.id === '690875417858408468')
+                break;
+        }
+
+        member.roles.add(guild_role.id)
+
+        admin_confirmation = await anfrage_channel.send('Dem Benutzer ' + member.user.username + ' wurde erfolgreich die Rolle ' + guild_role.name + ' hinzugefügt')
+
+        embed = new MessageEmbed()
+            .setColor(color)
+            .setTitle('Du hast nun vollen Zugang zum Server')
+        member.user.send(embed)
+
+
+        setTimeout(function () {
+            admin_confirmation.delete()
+        }, 5000);
 
     }
 }
