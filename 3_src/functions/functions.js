@@ -197,11 +197,6 @@ var functions = {
             .setTitle('Du hast nun vollen Zugang zum Server')
         member.user.send(embed)
 
-
-        setTimeout(function () {
-            admin_confirmation.delete()
-        }, 5000);
-
     }
 }
 
