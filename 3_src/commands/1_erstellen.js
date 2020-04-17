@@ -237,7 +237,7 @@ module.exports = {
 
         //Datum erstellen
         datum = new Date(datum[2], datum[1], datum[0]);
-        datum = new Date(datum.getUTCFullYear(), datum.getUTCMonth() - 1, datum.getUTCDate() + 1, 2)
+        datum = new Date(datum.getUTCFullYear(), datum.getUTCMonth() - 1, datum.getUTCDate(), 2)
 
         //Vergleichsdatum erstellen
         let currentDate = new Date(Date.now())
