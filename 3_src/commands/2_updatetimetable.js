@@ -7,7 +7,7 @@ module.exports = {
     //Command config for command execution  
     config: {
         name: 'updatettimetable',
-        aliases: ['utb'],
+        aliases: ['ut'],
         permissionRank: 2
     },
 
