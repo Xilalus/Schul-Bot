@@ -12,7 +12,7 @@ module.exports = async bot => {
     let d = new Date(Date.now())
     console.log(d)
 
-    schedule.scheduleJob('22 14 1,2,3,4,5 * *', () => {
+    schedule.scheduleJob('27 14 1,2,3,4,5 * *', () => {
 
         MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, function (err, db) {
 
