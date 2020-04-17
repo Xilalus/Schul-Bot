@@ -11,7 +11,7 @@ module.exports = async bot => {
     
     let rule = new schedule.RecurrenceRule();
     rule.hour = [15];
-    rule.minute = [31];
+    rule.minute = [36];
     rule.dayOfWeek = [1, 2, 3, 4, 5];
 
     schedule.scheduleJob(rule, () => {
