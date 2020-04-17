@@ -86,7 +86,7 @@ module.exports = {
 
                 //Datum erstellen
                 slicedDate = new Date(slicedDate[2], slicedDate[1], slicedDate[0]);
-                slicedDate = new Date(slicedDate.getUTCFullYear(), slicedDate.getUTCMonth() - 1, slicedDate.getUTCDate() + 1, 2)
+                slicedDate = new Date(slicedDate.getUTCFullYear(), slicedDate.getUTCMonth() - 1, slicedDate.getUTCDate(), 2)
 
                 //Mit der Datenbank verbinden
                 MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, function (err, db) {
