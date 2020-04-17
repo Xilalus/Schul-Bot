@@ -242,9 +242,6 @@ module.exports = {
         //Vergleichsdatum erstellen
         let currentDate = new Date(Date.now())
         currentDate = new Date(currentDate.getUTCFullYear(), currentDate.getUTCMonth(), currentDate.getUTCDate(), 2)
-        
-        console.log(datum)
-        console.log(currentDate)
 
         //Stunden Onjekt erstellen
         let eintrag = {
