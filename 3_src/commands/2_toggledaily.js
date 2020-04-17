@@ -2,6 +2,8 @@ const { prefix, color, url } = require('../../2_config/botconfig.json')
 const { MessageEmbed } = require('discord.js')
 const MongoClient = require('mongodb').MongoClient;
 
+url = process.env.url
+
 module.exports = {
 
     //Command config for command execution  
