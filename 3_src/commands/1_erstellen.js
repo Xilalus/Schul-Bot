@@ -271,7 +271,7 @@ module.exports = {
                         [jgs]: array
                     }
 
-                    if (datum == currentDate) {
+                    if (datum.getTime() === currentDate.getTime()) {
                         f.sendUpdate(jgs, array, currentDate, bot)
                     }
 
@@ -301,7 +301,7 @@ module.exports = {
                         return parseInt(atime) - parseInt(btime)
                     })
 
-                    if (datum == currentDate) {
+                    if (datum.getTime() === currentDate.getTime()) {
                         f.sendUpdate(jgs, array, currentDate, bot)
                     }
 
