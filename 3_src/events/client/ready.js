@@ -8,7 +8,7 @@ module.exports = async bot => {
 
     bot.user.setActivity('you!', { type: "WATCHING" });
 
-    schedule.scheduleJob('7 16 1-5 * *', () => {
+    schedule.scheduleJob('10 14 1-5 * *', () => {
 
         MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, function (err, db) {
 
