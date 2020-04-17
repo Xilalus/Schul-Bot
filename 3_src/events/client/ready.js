@@ -7,6 +7,8 @@ module.exports = async bot => {
     console.log(`${bot.user.username} is online! \nYou are logged in as ${bot.user.tag}`);
 
     bot.user.setActivity('you!', { type: "WATCHING" });
+    
+    console.log(new Date(Date.now))
 
     schedule.scheduleJob('10 14 1-5 * *', () => {
 
