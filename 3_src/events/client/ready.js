@@ -8,7 +8,8 @@ module.exports = async bot => {
 
     bot.user.setActivity('you!', { type: "WATCHING" });
     
-    console.log(new Date(Date.now))
+    let d = new Date(Date.now())
+    console.log(d)
 
     schedule.scheduleJob('10 14 1-5 * *', () => {
 
