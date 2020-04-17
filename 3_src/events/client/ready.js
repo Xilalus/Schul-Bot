@@ -9,10 +9,11 @@ module.exports = async bot => {
 
     bot.user.setActivity('you!', { type: "WATCHING" });
     
-    let d = new Date(Date.now())
-    console.log(d)
+    let rule = new schedule.RecurrenceRule();
+    rule.hour = [15];
+    rule.minute = [31];
 
-    schedule.scheduleJob('27 14 1,2,3,4,5 * *', () => {
+    schedule.scheduleJob(rule, () => {
 
         MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, function (err, db) {
 
