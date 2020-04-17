@@ -3,6 +3,8 @@ const { MessageEmbed } = require('discord.js')
 const f = require('../functions/functions.js')
 const MongoClient = require('mongodb').MongoClient;
 
+url = process.env.url
+
 module.exports = {
 
     //Command config for command execution  
