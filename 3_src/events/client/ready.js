@@ -1,7 +1,8 @@
 const schedule = require('node-schedule');
 const f = require('../../functions/functions.js')
 const MongoClient = require('mongodb').MongoClient
-const { url } = require('../../../2_config/botconfig.json')
+
+let url = process.env.url
 
 module.exports = async bot => {
     console.log(`${bot.user.username} is online! \nYou are logged in as ${bot.user.tag}`);
@@ -11,7 +12,7 @@ module.exports = async bot => {
     let d = new Date(Date.now())
     console.log(d)
 
-    schedule.scheduleJob('16 14 * * *', () => {
+    schedule.scheduleJob('19 14 * * *', () => {
 
         MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, function (err, db) {
 
