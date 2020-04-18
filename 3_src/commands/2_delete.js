@@ -13,7 +13,7 @@ module.exports = {
     //Running command
     run: async (bot, message, args, permRank) => {
 
-        message.delete().then( () => {
+        message.delete().then( async () => {
             let amount = args[1];
 
             if (!amount) return message.reply('Gib eine Anzahl an Nachrichten an, die du löschen willst');
