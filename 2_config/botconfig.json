@@ -1,7 +1,7 @@
 {
     "token": "just imagine a token",
     "url": "just imagine an url",
-    "prefix": "!",
+    "prefix": "?",
     "color": "0x71368a",
     "pending_color": "0xdf6500"
 }
