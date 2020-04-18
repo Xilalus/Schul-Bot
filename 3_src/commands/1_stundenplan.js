@@ -39,7 +39,7 @@ module.exports = {
 
             //Datum des heutigen Tages erstellen
             let datum = new Date(Date.now())
-            datum = new Date(datum.getUTCFullYear(), datum.getUTCMonth(), datum.getUTCDate(), 2)
+            datum = new Date(datum.getUTCFullYear(), datum.getUTCMonth(), datum.getUTCDate())
 
             //Mit der Datenbank verbinden
             MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, function (err, db) {
@@ -86,7 +86,7 @@ module.exports = {
 
                 //Datum erstellen
                 slicedDate = new Date(slicedDate[2], slicedDate[1], slicedDate[0]);
-                slicedDate = new Date(slicedDate.getUTCFullYear(), slicedDate.getUTCMonth() - 1, slicedDate.getUTCDate(), 2)
+                slicedDate = new Date(slicedDate.getUTCFullYear(), slicedDate.getUTCMonth() - 1, slicedDate.getUTCDate())
 
                 //Mit der Datenbank verbinden
                 MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, function (err, db) {
