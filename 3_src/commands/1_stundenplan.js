@@ -52,7 +52,7 @@ module.exports = {
                     let embed = new MessageEmbed()
                         .setColor(color)
                         .setTitle('Stundenplan | ' + jgs)
-                        .setFooter(datum.getDate() + '/' + (datum.getMonth() + 1) + '/' + datum.getFullYear())
+                        .setFooter(datum.getDate() + '.' + (datum.getMonth() + 1) + '.' + datum.getFullYear())
 
                     //Falls es keinen Eintrag mit dem heutigen Datum gibt => 'Keine Einträge gefunden' zum Embed hinzufügen 
                     if (!result) {
