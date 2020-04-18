@@ -6,7 +6,7 @@ module.exports = {
     //Command config for command execution  
     config: {
         name: 'delete',
-        aliases: [''],
+        aliases: ['d'],
         permissionRank: 2
     },
 
