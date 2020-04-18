@@ -77,13 +77,13 @@ module.exports = {
 
                         datum = slicedDate;
                         slicedDate = new Date(slicedDate[2], slicedDate[1], slicedDate[0]);
-                        slicedDate = new Date(slicedDate.getUTCFullYear(), slicedDate.getUTCMonth() - 1, slicedDate.getUTCDate(), 2)
+                        slicedDate = new Date(slicedDate.getUTCFullYear(), slicedDate.getUTCMonth() - 1, slicedDate.getUTCDate())
 
                         let date = new Date(Date.now())
-                        date = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + 7, 2)
+                        date = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + 7)
 
                         let currentDate = new Date(Date.now())
-                        currentDate = new Date(currentDate.getUTCFullYear(), currentDate.getUTCMonth(), currentDate.getUTCDate(), 2)
+                        currentDate = new Date(currentDate.getUTCFullYear(), currentDate.getUTCMonth(), currentDate.getUTCDate())
 
                         if (slicedDate <= date) {
                             if (slicedDate < currentDate) {
@@ -237,11 +237,11 @@ module.exports = {
 
         //Datum erstellen
         datum = new Date(datum[2], datum[1], datum[0]);
-        datum = new Date(datum.getUTCFullYear(), datum.getUTCMonth() - 1, datum.getUTCDate(), 2)
+        datum = new Date(datum.getUTCFullYear(), datum.getUTCMonth() - 1, datum.getUTCDate())
 
         //Vergleichsdatum erstellen
         let currentDate = new Date(Date.now())
-        currentDate = new Date(currentDate.getUTCFullYear(), currentDate.getUTCMonth(), currentDate.getUTCDate(), 2)
+        currentDate = new Date(currentDate.getUTCFullYear(), currentDate.getUTCMonth(), currentDate.getUTCDate())
 
         //Stunden Onjekt erstellen
         let eintrag = {
