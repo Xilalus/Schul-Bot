@@ -13,17 +13,18 @@ module.exports = {
     //Running command
     run: async (bot, message, args, permRank) => {
 
-        message.delete();
+        message.delete().then( () => {
+            let amount = args[1];
 
-        let amount = args[1];
+            if (!amount) return message.reply('Gib eine Anzahl an Nachrichten an, die du löschen willst');
+            if (isNaN(amount)) return message.reply('Die Anzahl ist keine Nummer');
+            if (amount > 100) return message.reply('Du kannst maximal nur 100 Nachrichten auf einmal löschen');
+            if (amount < 1) return message.reply('Du kannst minimal 1 Nachricht löschen');
 
-        if (!amount) return message.reply('Gib eine Anzahl an Nachrichten an, die du löschen willst');
-        if (isNaN(amount)) return message.reply('Die Anzahl ist keine Nummer');
-        if (amount > 100) return message.reply('Du kannst maximal nur 100 Nachrichten auf einmal löschen');
-        if (amount < 1) return message.reply('Du kannst minimal 1 Nachricht löschen');
-
-        await message.channel.messages.fetch({ limit: amount }).then(messages => {
-            message.channel.bulkDelete(messages)
-        });
+            await message.channel.messages.fetch({ limit: amount }).then(messages => {
+                message.channel.bulkDelete(messages)
+               });
+            }
+        )   
     }
 } 
