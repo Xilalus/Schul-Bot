@@ -15,7 +15,7 @@ module.exports = {
     run: async (bot, message, args, permRank) => {
 
         let date = new Date(Date.now())
-        date = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 2)
+        date = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate())
 
         let classes = [
             ['12', '699980397739638966'],
