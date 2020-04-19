@@ -21,7 +21,7 @@ module.exports = {
         let embed = new MessageEmbed()
             .setColor(color)
             .setTitle('Stundenplan | Jahrgangsstufe')
-            .setDescription('Geben Sie die Jahrgangsstufe in Zahlenformat an \nZum Beispiel: `12` \n \nWährend dem ganzen Erstellungsprozess können Sie auf die Fragen des Bots mit `abbrechen` antwoten, um den Erstellungsprozess ab zubrechen.')
+            .setDescription('Geben Sie die Jahrgangsstufe in Zahlenformat an \nZum Beispiel: `12` \n \nWährend dem ganzen Erstellungsprozess können Sie auf die Fragen des Bots mit `abbrechen` antworten, um den Erstellungsprozess abzubrechen.')
         let msg = await message.channel.send(embed)
 
         let jahrgangsstufen = ['5', '6', '7', '8', '9', '10', '11', '12'];
@@ -199,7 +199,7 @@ module.exports = {
         embed = new MessageEmbed()
             .setColor(color)
             .setTitle('Stundenplan | Bestätigung')
-            .setDescription(`Ihr Stundenplaneintrag für die ${jgs}te am ${datum.join('.')} schaut wie folgt aus:`)
+            .setDescription(`Ihr Stundenplaneintrag für die ${jgs}te am ${datum.join('.')} sieht wie folgt aus:`)
             .addField(uhrzeit.join(':'), `**Lehrkraft:** ${message.member.displayName}\n**Teilnehmer:** ${teilnehmer}\n**Thema:** ${thema}`)
         msg = await message.channel.send(embed)
 
