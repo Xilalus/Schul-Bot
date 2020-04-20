@@ -13,8 +13,8 @@ module.exports = async bot => {
     console.log(x)
     
     let rule = new schedule.RecurrenceRule();
-    rule.hour = [9];
-    rule.minute = [3];
+    rule.hour = [5];
+    rule.minute = [45];
     rule.dayOfWeek = [1, 2, 3, 4, 5];
 
     schedule.scheduleJob(rule, () => {
