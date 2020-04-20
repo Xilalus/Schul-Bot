@@ -13,14 +13,34 @@ module.exports = {
     //Running command
     run: async (bot, message, args, permRank) => {
 
+        if (message.channel.id !== '699967540465762356' && permRank < 2) {
+            let msg = await message.channel.send('Bitte benutzen Sie für die Befehle den <#699967540465762356> Kanal!')
+
+            message.delete({ timeout: 0 })
+
+            msg.delete({ timeout: 10000 })
+
+            return;
+        }
+
         //Sendet die Befehle, die anhänging von der Rolle auf dem Server, von dem User benutzt werden können
         if (permRank < 2) {
 
             //Alle Befehle für Schulleitung und Lehrer
             let embed = new MessageEmbed()
                 .setColor(color)
-                .setTitle('Befehle | Lehrer')
-                .setDescription('`?erstellen` oder `?er` \n- Hiermit können Sie einen neuen Stundenplan Eintrag erstellen\n \n`?stundenplan [jgs]` oder `?sp [jgs]` \n- Hiermit können Sie den Stundenplan der angegebenen Jahrgangstufe am aktuellen Tag aufrufen (`[jsg]` nur in Zahlenformat z.B. 11)\n \n`?stundeplan [jgs] [datum]` oder `?sp [jgs] [datum]` \n- Hiermit können Sie den Stundenplan der angegebenen Jahrgangstufe am angegebenen Tag aufrufen (`[jgs]` nur in Zahlenformat z.B. 11, `[datum]` im Format D.M.JJJJ) ')
+                .setTitle('Befehle | Schulleitung/Lehrer')
+                .setDescription(`\`${prefix}erstellen\` oder \`${prefix}er\` 
+                - Hiermit können Sie einen neuen Stundenplan Eintrag erstellen 
+                
+                \`${prefix}stundenplan [jgs]\` oder \`${prefix}sp [jgs]\` 
+                - Hirmit können Sie den Stundenplan der angegebenen Jahrgangsstufe am aktuellen Tag abrufen (**[jgs]** nur im Zahlenformat z.B. 12)
+                
+                \`${prefix}stundenplan [jgs] [datum]\` oder \`${prefix}sp [jgs] [datum]\` 
+                - Hiermit können Sie den Stundenplan der angegebenen Jahrgangsstufe am aktuellen Tag abrufen (**[jgs]** nur im Zahlenformat z.B. 12, **[datum]** im Format D.M.JJJJ)
+
+                \`${prefix}übersicht [jgs] [datum]\`
+                - Hiermit können Sie eine Übersicht des Stundenplans, der angegebenen Jahrgangsstufe ab dem angegebenen Datum, aufrufen. Die Übersicht beginnt an dem angegebenen Datum und reicht 4 weitere Tage in die Zukunft (**[jgs]** nur im Zahlenformat z.B. 12, **[datum]** im Format D.M.JJJJ)`)
             message.channel.send(embed)
 
         } else {
@@ -29,9 +49,33 @@ module.exports = {
             let embed = new MessageEmbed()
                 .setColor(color)
                 .setTitle('Befehle | Admin/Moderator')
-                .setDescription('`?erstellen` oder `?er` \n- Hiermit können Sie einen neuen Stundenplan Eintrag erstellen\n \n`?stundenplan [jgs]` oder `?sp [jgs]` \n- Hiermit können Sie den Stundenplan der angegebenen Jahrgangstufe am aktuellen Tag aufrufen (`[jsg]` nur in Zahlenformat z.B. 11)\n \n`?stundeplan [jgs] [datum]` oder `?sp [jgs] [datum]` \n- Hiermit können Sie den Stundenplan der angegebenen Jahrgangstufe am angegebenen Tag aufrufen (`[jgs]` nur in Zahlenformat z.B. 11, `[datum]` im Format D.M.JJJJ)\n \n`?updatetimetable` oder `?ut` \n- Hiermit werden alle heutigen Stundenpläne in die Kanäle dafür geschickt \n \n `?toggledaily [on/off]` oder `?td [on/off]` \n- Hiermit können die täglichen Stundenplan Nachrichten an- bzw. ausgestellt werden \n \n`?rules` \n- Schickt die Regeln des Servers als Embed \n \n`?welcome` \n- Schickt die Willkommensnachricht als Embed \n \n`?delete [anzahl]` oder `?d [anzahl]` \n- Hiermit können Sie eine bestimmte Anzahl an Nachrichten löschen ')
-            message.channel.send(embed)
+                .setDescription(`\`${prefix}erstellen\` oder \`${prefix}er\` 
+                - Hiermit können Sie einen neuen Stundenplan Eintrag erstellen 
+                
+                \`${prefix}stundenplan [jgs]\` oder \`${prefix}sp [jgs]\` 
+                - Hirmit können Sie den Stundenplan der angegebenen Jahrgangsstufe am aktuellen Tag abrufen (**[jgs]** nur im Zahlenformat z.B. 12)
+                
+                \`${prefix}stundenplan [jgs] [datum]\` oder \`${prefix}sp [jgs] [datum]\` 
+                - Hiermit können Sie den Stundenplan der angegebenen Jahrgangsstufe am aktuellen Tag abrufen (**[jgs]** nur im Zahlenformat z.B. 12, **[datum]** im Format D.M.JJJJ)
 
+                \`${prefix}übersicht [jgs] [datum]\`
+                - Hiermit können Sie eine Übersicht des Stundenplans, der angegebenen Jahrgangsstufe ab dem angegebenen Datum, aufrufen. Die Übersicht beginnt an dem angegebenen Datum und reicht 4 weitere Tage in die Zukunft (**[jgs]** nur im Zahlenformat z.B. 12, **[datum]** im Format D.M.JJJJ)
+                
+                \`${prefix}updatetimetable\` oder \`${prefix}ut\`
+                - Hiermit werden alle heutigen Stundenpläne in die Kanäle dafür geschickt
+                
+                \`${prefix}toggledaily [on/off]\` oder \`${prefix}td [on/off]\`
+                - Hiermit können die täglichen Stundenplan-Nachrichten an- bzw. ausgestellte werden
+                
+                \`${prefix}rules\`
+                - Schickt die Regeln des Server als Embed
+                
+                \`${prefix}welcome\`
+                - Schickt die Willkommensnachricht als Embed
+
+                \`${prefix}delete [anzahl]\` oder \`${prefix}d [anzahl]\`
+                - Hiermit kann eine bestimmte Anzahl (max 100) an Nachrichten gelöscht werden`)
+            message.channel.send(embed)
         }
     }
 } 
