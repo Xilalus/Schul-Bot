@@ -9,6 +9,9 @@ module.exports = async bot => {
 
     bot.user.setActivity('you!', { type: "WATCHING" });
     
+    let x = new Date(Date.now())
+    console.log(x)
+    
     let rule = new schedule.RecurrenceRule();
     rule.hour = [8];
     rule.minute = [59];
