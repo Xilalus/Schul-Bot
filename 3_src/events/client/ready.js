@@ -10,8 +10,8 @@ module.exports = async bot => {
     bot.user.setActivity('you!', { type: "WATCHING" });
     
     let rule = new schedule.RecurrenceRule();
-    rule.hour = [7];
-    rule.minute = [45];
+    rule.hour = [8];
+    rule.minute = [59];
     rule.dayOfWeek = [1, 2, 3, 4, 5];
 
     schedule.scheduleJob(rule, () => {
