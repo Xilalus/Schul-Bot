@@ -18,8 +18,6 @@ module.exports = async bot => {
     rule.dayOfWeek = [1, 2, 3, 4, 5];
 
     schedule.scheduleJob(rule, () => {
-        console.log('HI')
-        /*
 
         MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, function (err, db) {
 
@@ -45,11 +43,9 @@ module.exports = async bot => {
                         classes.forEach(x => {
                             f.sendPlan(x, date, bot)
                         })
-
                     }
                 }
             })
         })
-        */
     })
 }
