@@ -15,6 +15,16 @@ module.exports = {
 
     //Running command
     run: async (bot, message, args, permRank) => {
+        
+         if (message.channel.id !== '699967540465762356' && permRank < 2) {
+            let msg = await message.channel.send('Bitte benutzen Sie für die Befehle den <#699967540465762356> Kanal!')
+
+            message.delete({ timeout: 0 })
+
+            msg.delete({ timeout: 10000 })
+
+            return;
+        }
 
         if (!args[1]) {
             message.channel.send('Bitte geben Sie eine Jahrgangsstufe im Zahlenformat an!')
