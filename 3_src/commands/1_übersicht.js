@@ -65,7 +65,7 @@ module.exports = {
             for (i = 0; i < 5; i++) {
                 let o = list[i]
                 let description = '';
-                if (o[jgs] !== undefiend) {
+                if (o[jgs] !== undefined) {
                     o[jgs].forEach((x) => {
                         description = description + `**${x.time}:** ${x.teacher} \n`
                     })
