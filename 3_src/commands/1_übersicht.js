@@ -1,8 +1,6 @@
-const { color } = require('../../2_config/botconfig.json')
+const { color, url } = require('../../2_config/botconfig.json')
 const { MessageEmbed } = require('discord.js')
 const MongoClient = require('mongodb').MongoClient;
-
-let url = process.env.url
 
 module.exports = {
 
@@ -21,11 +19,6 @@ module.exports = {
             return;
         }
 
-        if (!args[2]) {
-            message.channel.send('Bitte geben Sie eine Datum im Format T.M.JJJJ an!')
-            return;
-        }
-
         let jahrgangsstufen = ['5', '6', '7', '8', '9', '10', '11', '12'];
         let jgs;
         if (jahrgangsstufen.includes(args[1])) {
@@ -35,22 +28,33 @@ module.exports = {
             return;
         }
 
-        let datum = args[2]
-        datum = datum.trim().split('.')
-        if (datum.length !== 3 || isNaN(datum[0]) || isNaN(datum[1]) || isNaN(datum[2])) {
-            message.channel.send('Bitte geben Sie ein gültiges Datum im Format T.M.JJJJ an')
-            return
+        let array = [];
+        if (!args[2]) {
+
+            let date = new Date(Date.now())
+            for (i = 0; i < 5; i++) {
+                let cdate = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + i)
+                array.push(cdate)
+            }
+
+        } else {
+
+            let datum = args[2]
+            datum = datum.trim().split('.')
+            if (datum.length !== 3 || isNaN(datum[0]) || isNaN(datum[1]) || isNaN(datum[2])) {
+                message.channel.send('Bitte geben Sie ein gültiges Datum im Format T.M.JJJJ an')
+                return
+            }
+
+            let date = new Date(datum[2], datum[1], datum[0])
+            for (i = 0; i < 5; i++) {
+                let cdate = new Date(date.getUTCFullYear(), date.getUTCMonth() - 1, date.getUTCDate() + i)
+                array.push(cdate)
+            }
+
         }
 
         MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, async function (err, db) {
-
-            let array = [];
-
-            for (i = 0; i < 5; i++) {
-                let date = new Date(datum[2], datum[1], datum[0])
-                date = new Date(date.getUTCFullYear(), date.getUTCMonth() - 1, date.getUTCDate() + i)
-                array.push(date)
-            }
 
             const cursor = db.db('TaoistDB').collection('stundenplan').find({ 'date': { $in: array } })
             let list = await cursor.toArray()
