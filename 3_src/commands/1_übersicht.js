@@ -63,17 +63,54 @@ module.exports = {
                 .setTitle('Stundenplan Übersicht | ' + jgs)
 
             for (i = 0; i < 5; i++) {
-                let o = list[i]
+
+                let o = list.find(x => { return x.date.getTime() === array[i].getTime() })
+
+                if (!o) {
+                    o = {
+                        date: array[i]
+                    };
+                }
+
                 let description = '';
-                if (typeof o[jgs] !== undefined) {
+                if (o[jgs]) {
                     o[jgs].forEach((x) => {
-                        description = description + `**${x.time}:** ${x.teacher} \n`
+                        description = description + `**${x.time}** - ${x.teacher} \n`
                     })
                 } else {
                     description = '❌'
                 }
 
-                embed.addField(o.date.getDate() + '.' + (o.date.getMonth() + 1) + '.' + o.date.getFullYear(), description)
+                let Wochentag;
+                switch (o.date.getDay()) {
+                    case 0:
+                        Wochentag = 'Sonntag';
+                        break;
+                    case 1:
+                        Wochentag = 'Montag';
+                        break;
+                    case 2:
+                        Wochentag = 'Dienstag';
+                        break;
+                    case 3:
+                        Wochentag = 'Mittwoch';
+                        break;
+                    case 4:
+                        Wochentag = 'Donnerstag';
+                        break;
+                    case 5:
+                        Wochentag = 'Freitag';
+                        break;
+                    case 6:
+                        Wochentag = 'Samstag';
+                        break;
+                    default:
+                        Wochentag = '';
+                        break;
+                }
+
+                embed.addField(Wochentag + ', ' + o.date.getDate() + '.' + (o.date.getMonth() + 1) + '.' + o.date.getFullYear(), description)
+
             }
             message.channel.send(embed)
         })
