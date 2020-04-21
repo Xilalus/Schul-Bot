@@ -39,8 +39,11 @@ module.exports = {
                 \`${prefix}stundenplan [jgs] [datum]\` oder \`${prefix}sp [jgs] [datum]\` 
                 - Hiermit können Sie den Stundenplan der angegebenen Jahrgangsstufe am aktuellen Tag abrufen (**[jgs]** nur im Zahlenformat z.B. 12, **[datum]** im Format D.M.JJJJ)
 
+                \`${prefix}übersicht [jgs]\`
+                - Hiermit können Sie eine Übersicht des Stundenplans der angegebenen Jahrgangsstufe aufrufen. Die Übersicht beginnt am **heutigen Datum** und reicht 4 weitere Tage in die Zukunft (**[jgs]** nur im Zahlenformat z.B. 12)
+
                 \`${prefix}übersicht [jgs] [datum]\`
-                - Hiermit können Sie eine Übersicht des Stundenplans, der angegebenen Jahrgangsstufe ab dem angegebenen Datum, aufrufen. Die Übersicht beginnt an dem angegebenen Datum und reicht 4 weitere Tage in die Zukunft (**[jgs]** nur im Zahlenformat z.B. 12, **[datum]** im Format D.M.JJJJ)`)
+                - Hiermit können Sie eine Übersicht des Stundenplans der angegebenen Jahrgangsstufe aufrufen. Die Übersicht beginnt an dem **angegebenen Datum** und reicht 4 weitere Tage in die Zukunft (**[jgs]** nur im Zahlenformat z.B. 12, **[datum]** im Format D.M.JJJJ)`)
             message.channel.send(embed)
 
         } else {
@@ -58,8 +61,11 @@ module.exports = {
                 \`${prefix}stundenplan [jgs] [datum]\` oder \`${prefix}sp [jgs] [datum]\` 
                 - Hiermit können Sie den Stundenplan der angegebenen Jahrgangsstufe am aktuellen Tag abrufen (**[jgs]** nur im Zahlenformat z.B. 12, **[datum]** im Format D.M.JJJJ)
 
+                \`${prefix}übersicht [jgs]\`
+                - Hiermit können Sie eine Übersicht des Stundenplans der angegebenen Jahrgangsstufe aufrufen. Die Übersicht beginnt am **heutigen Datum** und reicht 4 weitere Tage in die Zukunft (**[jgs]** nur im Zahlenformat z.B. 12)
+
                 \`${prefix}übersicht [jgs] [datum]\`
-                - Hiermit können Sie eine Übersicht des Stundenplans, der angegebenen Jahrgangsstufe ab dem angegebenen Datum, aufrufen. Die Übersicht beginnt an dem angegebenen Datum und reicht 4 weitere Tage in die Zukunft (**[jgs]** nur im Zahlenformat z.B. 12, **[datum]** im Format D.M.JJJJ)
+                - Hiermit können Sie eine Übersicht des Stundenplans der angegebenen Jahrgangsstufe aufrufen. Die Übersicht beginnt an dem **angegebenen Datum** und reicht 4 weitere Tage in die Zukunft (**[jgs]** nur im Zahlenformat z.B. 12, **[datum]** im Format D.M.JJJJ)
                 
                 \`${prefix}updatetimetable\` oder \`${prefix}ut\`
                 - Hiermit werden alle heutigen Stundenpläne in die Kanäle dafür geschickt
