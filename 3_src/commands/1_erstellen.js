@@ -201,7 +201,7 @@ module.exports = {
             .setTitle('Stundenplan | Bestätigung')
             .setDescription(`Ihr Stundenplaneintrag für die ${jgs}te am ${datum.join('.')} sieht wie folgt aus:`)
             .addField(uhrzeit.join(':'), `**Lehrkraft:** ${message.member.displayName}\n**Teilnehmer:** ${teilnehmer}\n**Thema:** ${thema}`)
-            .addField('Klicken Sie auf', '✅ um den Eintrag zu erstellen\n❌ um den Eintrag zu verwerfen')
+            .addField('\u200B', 'Klicken Sie auf\n \n✅ um den Eintrag zu erstellen\n❌ um den Eintrag zu verwerfen')
         msg = await message.channel.send(embed)
 
         const reactions = ["✅", "❌"];
