@@ -1,6 +1,8 @@
-const { color, url } = require('../../2_config/botconfig.json')
+const { color} = require('../../2_config/botconfig.json')
 const { MessageEmbed } = require('discord.js')
 const MongoClient = require('mongodb').MongoClient;
+
+let url = process.env.url
 
 module.exports = {
 
