@@ -226,7 +226,7 @@ var functions = {
         return int;
     },
 
-    sendUpdate: function (jgs, array, date, bot) {
+    sendUpdate: async function (jgs, array, date, bot) {
         let table = {
             5: '699994830109147217',
             6: '699994574700937226',
@@ -277,18 +277,21 @@ var functions = {
             embed.addField(x.time, `Lehrerkraft: ${x.teacher}\nTeilnehmer: ${x.students}\nThema: ${x.subject}`)
         })
 
-        bot.channels.cache.get(table[jgs]).send(mention)
-        bot.channels.cache.get(table[jgs]).send(embed)
+        await bot.channels.cache.get(table[jgs]).messages.fetch({ limit: 10 }).then(messages => {
+            bot.channels.cache.get(table[jgs]).bulkDelete(messages)
+            bot.channels.cache.get(table[jgs]).send(mention)
+            bot.channels.cache.get(table[jgs]).send(embed)
+        });
 
     },
 
-    sendPlan: function (array, date, bot) {
+    sendPlan: async function (array, date, bot) {
         let jgs = array[0];
         let channel = array[1];
 
         MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, function (err, db) {
 
-            db.db('TaoistDB').collection('stundenplan').findOne({ date: date }, (err, result) => {
+            db.db('TaoistDB').collection('stundenplan').findOne({ date: date }, async (err, result) => {
                 if (err) throw err;
 
                 let embed = new MessageEmbed()
@@ -339,8 +342,11 @@ var functions = {
 
                 }
 
-                bot.channels.cache.get(channel).send(mention)
-                bot.channels.cache.get(channel).send(embed)
+                await bot.channels.cache.get(channel).messages.fetch({ limit: 10 }).then(messages => {
+                    bot.channels.cache.get(channel).bulkDelete(messages)
+                    bot.channels.cache.get(channel).send(mention)
+                    bot.channels.cache.get(channel).send(embed)
+                });
 
             })
 
