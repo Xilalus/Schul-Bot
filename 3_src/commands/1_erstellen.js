@@ -214,20 +214,20 @@ module.exports = {
             const collect = await msg.awaitReactions(
                 filter, { time: 60000, max: 1 })
                 .catch(() => { });
-            if (!collect) {
+            if (!collect.size) {
                 message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `!erstellen` ein, um neu zu beginnen.');
+                msg.reactions.removeAll()
                 return;
             } else {
-                if (collect.size) {
-                    if (collect.first().emoji.name === '✅') {
-                        message.reply('Ihr Stundenplaneintrag wurde erfolgreich erstellt!')
-                        msg.reactions.removeAll()
-                        break;
-                    } else if (collect.first().emoji.name === '❌') {
-                        msg.reactions.removeAll()
-                        message.reply('Ihre Erstellungsanfrage wurde erfolgreich abgebrochen!')
-                        return;
-                    }
+                
+                if (collect.first().emoji.name === '✅') {
+                    message.reply('Ihr Stundenplaneintrag wurde erfolgreich erstellt!')
+                    msg.reactions.removeAll()
+                    break;
+                } else if (collect.first().emoji.name === '❌') {
+                    msg.reactions.removeAll()
+                    message.reply('Ihre Erstellungsanfrage wurde erfolgreich abgebrochen!')
+                    return;
                 }
             }
         }
