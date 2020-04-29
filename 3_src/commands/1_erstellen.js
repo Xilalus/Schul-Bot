@@ -33,7 +33,7 @@ module.exports = {
                 errors: ['time']
             }).catch(() => { });
             if (!collect) {
-                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `!erstellen` ein, um neu zu beginnen.');
+                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `?erstellen` ein, um neu zu beginnen.');
                 return;
             } else {
                 if (collect.size) {
@@ -65,7 +65,7 @@ module.exports = {
                 errors: ['time']
             }).catch(() => { });
             if (!collect) {
-                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `!erstellen` ein, um neu zu beginnen.');
+                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `?erstellen` ein, um neu zu beginnen.');
                 return;
             } else {
                 if (collect.size) {
@@ -117,7 +117,7 @@ module.exports = {
                 errors: ['time']
             }).catch(() => { });
             if (!collect) {
-                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `!erstellen` ein, um neu zu beginnen.');
+                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `?erstellen` ein, um neu zu beginnen.');
                 return;
             } else {
                 if (collect.size) {
@@ -129,7 +129,7 @@ module.exports = {
                         uhrzeit = slicedTime;
                         break;
                     } else {
-                        message.channel.send('Es gab einen Fehler bei Ihrer Eingabe. Die Uhrzeit war ungültig. \nGeben Sie das Datum im 24 Stunden Format an')
+                        message.channel.send('Es gab einen Fehler bei Ihrer Eingabe. Die Uhrzeit war ungültig. \nGeben Sie die Uhrzeit im 24 Stunden Format an')
                     }
                 }
             }
@@ -150,7 +150,7 @@ module.exports = {
                 errors: ['time']
             }).catch(() => { });
             if (!collect) {
-                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `!erstellen` ein, um neu zu beginnen.');
+                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `?erstellen` ein, um neu zu beginnen.');
                 return;
             } else {
                 if (collect.size) {
@@ -180,7 +180,7 @@ module.exports = {
                 errors: ['time']
             }).catch(() => { });
             if (!collect) {
-                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `!erstellen` ein, um neu zu beginnen.');
+                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `?erstellen` ein, um neu zu beginnen.');
                 return;
             } else {
                 if (collect.size) {
@@ -216,7 +216,7 @@ module.exports = {
                 filter, { time: 60000, max: 1 })
                 .catch(() => { });
             if (!collect.size) {
-                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `!erstellen` ein, um neu zu beginnen.');
+                message.reply('Ihre Erstellungsanfrage ist nach 60 Sekunden abgelaufen. Geben Sie erneut `?erstellen` ein, um neu zu beginnen.');
                 msg.reactions.removeAll()
                 return;
             } else {
