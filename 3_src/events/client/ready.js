@@ -7,7 +7,12 @@ let url = process.env.url
 module.exports = async bot => {
     console.log(`${bot.user.username} is online! \nYou are logged in as ${bot.user.tag}`);
 
-    bot.user.setActivity('?befehle', { type: "PLAYING" });
+    bot.user.setPresence({
+        game: {
+            name: '?befehle',
+            type: "PLAYING"
+        }
+    });
     
     let rule = new schedule.RecurrenceRule();
     rule.hour = [5];
