@@ -5,7 +5,7 @@ const MongoClient = require('mongodb').MongoClient
 let url = process.env.url
 
 module.exports = async bot => {
-    console.log(`${bot.user.username} is online! \nYou are logged in as ${bot.user.tag}`);
+    console.log(`${bot.user.username} is online! \nYou are logged in as ${bot.user.tag} Hi`);
 
     bot.user.setActivity('?befehle', { type: 'WATCHING' })
     
